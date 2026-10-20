@@ -102,7 +102,7 @@ export default function UploadPage({ firstName, past }) {
                   <span className="truncate pr-3">
                     {r.fileName}
                     <span className="ml-2 text-sm text-slate-500">
-                      {new Date(r.createdAt).toLocaleDateString()}
+                      {new Date(r.createdAt).toLocaleDateString('en-GB', { timeZone: 'UTC' })}
                     </span>
                   </span>
                   <span className={`font-pixel text-[10px] ${rank.text}`}>

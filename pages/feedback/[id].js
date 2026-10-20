@@ -37,7 +37,7 @@ export default function FeedbackPage({ roast, firstName }) {
           {cleared ? 'STAGE CLEAR!' : 'GAME OVER'}
         </h1>
         <p className="mt-2 font-pixel text-[9px] text-slate-400">
-          PLAYER: {firstName.toUpperCase()} · {roast.fileName} · {new Date(roast.createdAt).toLocaleDateString()}
+          PLAYER: {firstName.toUpperCase()} · {roast.fileName} · {new Date(roast.createdAt).toLocaleDateString('en-GB', { timeZone: 'UTC' })}
         </p>
       </div>
 
