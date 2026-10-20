@@ -1,0 +1,24 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Roast {
+  id         String   @id @default(cuid())
+  userEmail  String
+  fileName   String
+  score      Int
+  verdict    String
+  roast      String
+  strengths  String[]
+  weaknesses String[]
+  fixes      String[]
+  createdAt  DateTime @default(now())
+
+  @@index([userEmail])
+}

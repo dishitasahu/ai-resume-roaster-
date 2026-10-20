@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rajdhani:wght@500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply font-body text-lg text-slate-200 antialiased;
+  background-color: #0a0a14;
+  background-image:
+    radial-gradient(circle at 20% 0%, rgba(217, 70, 239, 0.18), transparent 40%),
+    radial-gradient(circle at 80% 10%, rgba(34, 211, 238, 0.15), transparent 40%),
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: auto, auto, 32px 32px, 32px 32px;
+  min-height: 100vh;
+}
+
+/* CRT scanlines */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0px,
+    rgba(0, 0, 0, 0) 2px,
+    rgba(0, 0, 0, 0.12) 3px
+  );
+}
+
+@layer components {
+  .panel {
+    @apply border-2 border-cyan-400/40 bg-[#0f0f22]/85 p-5;
+    box-shadow: 0 0 18px rgba(34, 211, 238, 0.15), inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+  }
+  .neon-text {
+    text-shadow: 0 0 10px currentColor;
+  }
+  .btn-arcade {
+    @apply inline-block border-b-4 border-fuchsia-900 bg-fuchsia-600 px-5 py-3 text-center font-pixel text-[11px] uppercase leading-relaxed text-white transition hover:bg-fuchsia-500 active:translate-y-0.5 active:border-b-2 disabled:cursor-not-allowed disabled:opacity-40;
+    box-shadow: 0 0 16px rgba(217, 70, 239, 0.45);
+  }
+  .btn-ghost {
+    @apply border-2 border-cyan-400/50 px-3 py-1.5 font-pixel text-[9px] uppercase text-cyan-300 transition hover:bg-cyan-400/10;
+  }
+}
