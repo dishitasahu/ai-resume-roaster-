@@ -27,3 +27,4 @@ Upload a PDF resume → get a score, a roast, and concrete fixes.
 
 Add all env vars in the Vercel dashboard, set `NEXTAUTH_URL` to your production URL, and add
 `https://YOUR-APP.vercel.app/api/auth/callback/google` to the Google OAuth redirect URIs.
+# ai-resume-roaster-
