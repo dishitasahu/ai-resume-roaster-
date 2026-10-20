@@ -29,7 +29,11 @@ let failed = false;
   console.log('\n2) Groq API');
   try {
     const r = await fetch('https://api.groq.com/openai/v1/models', { headers: { Authorization: 'Bearer ' + key } });
-    if (r.ok) ok('Groq accepted your key');
+    if (r.ok) {
+      ok('Groq accepted your key');
+      const ids = ((await r.json()).data || []).map((m) => m.id).filter((id) => !/whisper|tts|guard|embed|orpheus|playai|safeguard/i.test(id));
+      console.log('     Chat models your key can use: ' + ids.join(', '));
+    }
     else bad('Groq said ' + r.status + ': ' + (await r.text()).slice(0, 200) + '  -> create a new key at console.groq.com/keys');
   } catch (e) { bad('Could not reach Groq (internet/VPN/firewall?): ' + e.message); }
 
